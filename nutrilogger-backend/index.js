@@ -10,7 +10,7 @@ app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use(cors());
 
-const CONNECTION_URL = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@nutricluster.p53q4ya.mongodb.net/?retryWrites=true&w=majority`;  //'mongodb+srv://esdev:hM26Z6iWo9SP@nutricluster.p53q4ya.mongodb.net/?retryWrites=true&w=majority'
+const CONNECTION_URL = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@nutricluster.p53q4ya.mongodb.net/?retryWrites=true&w=majority`;
 const PORT = process.env.PORT || 5000;
 
 //mongoose.connect(CONNECTION_URL).then(() => {console.log('started')});

@@ -4,7 +4,6 @@ import { Container } from "@material-ui/core";
 import MainNav from "../MainNav/MainNav";
 
 const Home = () => {
-
     return (
         <Container maxWidth='lg'>
             <MainNav></MainNav>

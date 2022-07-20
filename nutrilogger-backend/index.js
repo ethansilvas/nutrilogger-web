@@ -8,11 +8,11 @@ import searchRoutes from './routes/search.js';
 
 const app = express(); 
 
-app.use('/search', searchRoutes);
-
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use(cors());
+
+app.use('/search', searchRoutes);
 
 const CONNECTION_URL = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@nutricluster.p53q4ya.mongodb.net/?retryWrites=true&w=majority`;
 const PORT = process.env.PORT || 5000;

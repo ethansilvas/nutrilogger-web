@@ -4,7 +4,7 @@ export const getFood = () => async (dispatch) => {
     try {
         const { food } = await api.getFood();
 
-        dispatch({ type: 'FETCH', payload: food });
+        dispatch({ type: 'FETCH', payload: food ? food : null });
     } catch (e) {
         console.log(e.message);
     }

@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { getFood } from '../../actions/search';
 import useStyles from './styles';
 
 const FoodSearch = () => {
     const classes = useStyles();
+
+    const dispatch = useDispatch();
+    const food = useSelector((state) => state.food);
+
+    console.log(food);
+
+    useEffect(() => {
+        dispatch(getFood());
+    }, [dispatch]);
 
     return (
         <Paper className={classes.paper}>

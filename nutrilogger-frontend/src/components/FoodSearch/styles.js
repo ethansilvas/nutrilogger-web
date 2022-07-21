@@ -4,7 +4,8 @@ export default makeStyles(() => ({
     foodSearchForm: {
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        gap: '15px'
     },
 
     paper: {

@@ -1,9 +1,14 @@
 import React, { useEffect } from 'react';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useHistory } from 'react-router-dom';
 
 import { getFood } from '../../actions/search';
 import useStyles from './styles';
+
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
 
 const FoodSearch = () => {
     const classes = useStyles();
@@ -11,17 +16,26 @@ const FoodSearch = () => {
     const dispatch = useDispatch();
     const food = useSelector((state) => state.food);
 
+    const query = useQuery();
+    const history = useHistory();
+    const page = query.get('page') || 1;
+    const searchQuery = query.get('searchQuery');
+
     console.log(food);
 
     useEffect(() => {
         dispatch(getFood());
     }, [dispatch]);
 
+    const handleSubmit = () => {
+
+    }
+
     return (
         <Paper className={classes.paper}>
-            <form className={classes.foodSearchForm} autoComplete='off' noValidate >
+            <form className={classes.foodSearchForm} autoComplete='off' noValidate onSubmit={handleSubmit}>
                 <Typography variant='h5'>Search for a food:</Typography>
-                <TextField name='food' variant='outlined' label='"Banana", "McDonalds", ...' fullWidth></TextField>
+                <TextField name='search' variant='outlined' label='Search for a food, brand, restaurant, etc.' fullWidth value='food' onChange={() => {}} />
             </form>
         </Paper>
     );

@@ -39,7 +39,7 @@ const FoodSearch = () => {
 
     const searchFood = (e) => {
         if (search.trim()) {
-            console.log('lmao');
+            dispatch(getFood({ search }))
         } else {
             e.preventDefault();
             history.push('/');

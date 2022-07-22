@@ -1,10 +1,10 @@
 import * as api from '../api'
 
-export const getFood = () => async (dispatch) => {
+export const getFood = (searchTerm) => async (dispatch) => {
     try {
-        const { food } = await api.getFood();
+        const { data: { data } } = await api.getFood(searchTerm);
 
-        dispatch({ type: 'FETCH', payload: food ? food : null });
+        dispatch({ type: 'FETCH', payload: data ? data : null });
     } catch (e) {
         console.log(e.message);
     }

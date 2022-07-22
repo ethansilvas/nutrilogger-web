@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-const url = 'http://localhost:5000/search';
+const API = axios.create({ baseURL: 'http://localhost:5000/search' });
 
-export const getFood = () => axios.get(url);
+export const getFood = (searchQuery) => API.get(`/search?searchQuery=${searchQuery.search || 'none'}`);

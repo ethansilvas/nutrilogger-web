@@ -4,12 +4,8 @@ import { Container } from '@material-ui/core';
 
 import Home from './components/Home/Home';
 import MainNav from "./components/MainNav/MainNav";
-import useStyles from './styles';
-
 
 const App = () => {
-    const classes = useStyles();
-
     return (
         <BrowserRouter>
             <Container maxWidth='lg'>

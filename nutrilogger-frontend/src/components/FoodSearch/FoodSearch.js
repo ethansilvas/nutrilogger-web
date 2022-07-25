@@ -6,7 +6,6 @@ import { useLocation, useHistory } from 'react-router-dom';
 import Food from '../Food/Food';
 import { getFood } from '../../actions/search';
 import useStyles from './styles';
-import { Card } from '@material-ui/core';
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);

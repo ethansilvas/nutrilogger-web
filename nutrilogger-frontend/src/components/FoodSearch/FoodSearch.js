@@ -25,6 +25,8 @@ const FoodSearch = () => {
 
     const [search, setSearch] = useState('');
 
+    console.log(food);
+
     useEffect(() => {
         dispatch(getFood());
     }, [dispatch]);
@@ -33,8 +35,10 @@ const FoodSearch = () => {
         e.preventDefault();
     }
 
-    const handleKeyPress = () => {
-
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            searchFood(e);
+        }
     }
 
     const searchFood = (e) => {
@@ -55,7 +59,7 @@ const FoodSearch = () => {
                     <TextField name='search' variant='outlined' label='Search for a food, brand, restaurant, etc.' fullWidth
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
-                        onKeyPress={() => { } }
+                        onKeyPress={(e) => handleKeyPress(e)}
                     />
                     <Button onClick={searchFood} variant='contained' color='primary' fullWidth>Search</Button>
                 </form>

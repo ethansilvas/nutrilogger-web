@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TextField, Button, Typography, Paper } from '@material-ui/core';
+import { TextField, Button, Typography, Paper, Grid } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useHistory } from 'react-router-dom';
 
@@ -24,8 +24,6 @@ const FoodSearch = () => {
     const searchQuery = query.get('searchQuery');
 
     const [search, setSearch] = useState('');
-
-    console.log(food);
 
     useEffect(() => {
         dispatch(getFood());
@@ -62,8 +60,9 @@ const FoodSearch = () => {
                     <Button onClick={searchFood} variant='contained' color='primary' fullWidth>Search</Button>
                 </form>
             </Paper>
-            { /*<Paper className={classes.paper}> */}
-            { food.foods ? food.foods.map((food) => ( <Food description={food.description} /> )) : 'yo' }
+            <Grid container alignItems='stretch' spacing={3}>
+                { food.foods ? food.foods.map((food) => ( <Grid item xs={12} sm={3}><Food description={food.description} /></Grid> )) : 'yo' }
+            </Grid>
         </>
     );
 }

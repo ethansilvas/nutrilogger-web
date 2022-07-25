@@ -11,5 +11,12 @@ export default makeStyles(() => ({
     paper: {
         padding: '20px',
         marginBottom: '15px'
-    }
+    },
+
+    searchButton: {
+        backgroundColor: 'lightGreen',
+        '&:hover': {
+            backgroundColor: 'darkSeaGreen'
+        }
+    },
 }));

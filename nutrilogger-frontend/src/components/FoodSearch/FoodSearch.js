@@ -61,7 +61,7 @@ const FoodSearch = () => {
                         onChange={(e) => setSearch(e.target.value)}
                         onKeyPress={(e) => handleKeyPress(e)}
                     />
-                    <Button onClick={searchFood} variant='contained' color='primary' fullWidth>Search</Button>
+                    <Button className={classes.searchButton} onClick={searchFood} variant='contained' fullWidth>Search</Button>
                 </form>
             </Paper>
             <Grid container alignItems='stretch' spacing={3}>
